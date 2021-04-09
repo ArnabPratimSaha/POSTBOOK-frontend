@@ -1,5 +1,5 @@
 import React,{useState} from "react"
-
+import "./SignUp.css"
 
 const SignUp=(()=>{
 
@@ -7,6 +7,8 @@ const SignUp=(()=>{
     const [isEmailvalid, setisEmailvalid]=useState(true);
     const [isPassword1, setisPassword1]=useState(true);
     const [isPassword2, setisPassword2]=useState(true);
+
+    const[isChecked, setisChecked]=useState(false);
 
     const onFormSubmitHandler=(event)=>{
         event.preventDefault();
@@ -32,6 +34,10 @@ const SignUp=(()=>{
         
     }
 
+    const onCheckHandler=()=>{
+        setisChecked(!isChecked);
+    }
+
     return(
         <div>
             <h1>SignUp Here</h1>
@@ -42,13 +48,13 @@ const SignUp=(()=>{
                 <input type="email" name="email" placeholder="Enter your Email"/>
                 <br/>
                 {!isEmailvalid && <p>email Not valid</p>}
-                <input type="password" name="password1" placeholder="Enter your Password"/>
+                <input type={isChecked ? "text":"password"} name="password1" placeholder="Enter your Password"/>
                 <br/>
                 {!isPassword1 && <p>password Not valid</p>}
-                <input type="password" name="password2" placeholder="Confirm your Password"/>
+                <input type={isChecked ? "text":"password"} name="password2" placeholder="Confirm your Password"/>
                 <br/>
                 {!isPassword2 && <p>password Not valid</p>}
-                <input type="checkbox"/>
+                <input className="check-box" onClick={onCheckHandler} type="checkbox"/>
                 <br/>
                 <button type="submit">SignUp</button>
                 <br/>
