@@ -1,5 +1,8 @@
 import React,{useState} from "react"
 import axios from "axios";
+import Cookies from "js-cookie";
+
+
 import "./SignUp.css"
 
 const SignUp=(()=>{
@@ -59,6 +62,8 @@ const SignUp=(()=>{
 
                     if(response.data.credentials==="valid"){
                         setisAllCredentialsValid(true);
+                        Cookies.set('x-auth-token', response.data.token);
+                        window.location="/home";
                     }
                     else{
                         setisAllCredentialsValid(false);

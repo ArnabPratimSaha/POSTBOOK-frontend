@@ -1,5 +1,6 @@
 import axios from "axios";
-import React ,{useState}from "react"
+import React ,{useState}from "react";
+import Cookies from "js-cookie";
 
 const LogIn=(()=>{
 
@@ -39,6 +40,8 @@ const LogIn=(()=>{
                 if(response.data.credentials==="valid")
                 {
                     setisAllCredentialsValid(true);
+                    Cookies.set('x-auth-token', response.data.token);
+                    window.location="/home";
                 }
                 else{
                     setisAllCredentialsValid(false);

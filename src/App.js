@@ -16,10 +16,10 @@ function App() {
         <Route path = "/signup" exact>
           <SignUp/>
         </Route>
-        <Route path="/home">
+        <Route path="/home" exact>
           <HomePage/>
         </Route>
-        <Redirect to="/login"/>
+        <Redirect to="/home"/>
       </Switch>
       </Router>
     </div>
