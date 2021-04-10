@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link , Switch,  Redirect} from "react-r
 
 import SignUp from "./Pages/SignUp/SignUp"
 import LogIn from "./Pages/LogIn/LogIn"
+import HomePage from "./Pages/Home/HomePage"
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path = "/signup" exact>
           <SignUp/>
+        </Route>
+        <Route path="/home">
+          <HomePage/>
         </Route>
         <Redirect to="/login"/>
       </Switch>
