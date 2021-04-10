@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link , Switch,  Redirect} from "react-r
 import SignUp from "./Pages/SignUp/SignUp"
 import LogIn from "./Pages/LogIn/LogIn"
 import HomePage from "./Pages/Home/HomePage"
+import Httperror from "./Pages/http-error-page/http-error";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/home" exact>
           <HomePage/>
+        </Route>
+        <Route path="/error" exact>
+          <Httperror/>
         </Route>
         <Redirect to="/home"/>
       </Switch>
