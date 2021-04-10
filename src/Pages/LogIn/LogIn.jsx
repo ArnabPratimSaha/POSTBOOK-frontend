@@ -31,23 +31,25 @@ const LogIn=(()=>{
 
         if(allInformationValid)
         {
-            const response=await axios.post(process.env.REACT_APP_BACKEND_API_URL+"/login",{
-                email:email,
-                password:password
-            })
-
+            
             try {
+                const response=await axios.post(process.env.REACT_APP_BACKEND_API_URL+"/login",{
+                    email:email,
+                    password:password
+                })
                 if(response.data.credentials==="valid")
                 {
                     setisAllCredentialsValid(true);
                     Cookies.set('x-auth-token', response.data.token);
                     window.location="/home";
                 }
-                else{
-                    setisAllCredentialsValid(false);
+                else
+                {
+                    setisAllCredentialsValid(false); 
                 }
             } catch (error) {
-                console.log(error);
+                setisAllCredentialsValid(false);
+                console.log({"error":error});
             }
         }
     }
